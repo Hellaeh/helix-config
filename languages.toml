@@ -1,0 +1,19 @@
+[[language]]
+name = 'rust'
+indent = { tab-width = 2, unit = '  ' }
+language-server = { command = 'rustup', args = ['run', 'nightly', 'rust-analyzer'] }
+
+[language.config.check]
+command = 'clippy'
+
+[[language]]
+name = 'typescript'
+# language-servers = [ { name = 'eslint', except-features = ['format']}]
+formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+auto-format = true
+
+[[language]]
+name = 'javascript'
+# language-servers = [ { name = 'eslint', except-features = ['format']}]
+formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+auto-format = true

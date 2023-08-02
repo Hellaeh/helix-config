@@ -1,0 +1,61 @@
+# theme = 'autumn_night'
+# theme = 'catppuccin_mocha'
+theme = 'ayu_evolve'
+
+[editor]
+idle-timeout = 50
+line-number = 'relative'
+scrolloff = 20
+shell = ['pwsh', '-NoLogo', '-NonInteractive', '-Command'] #-NoProfile
+true-color = true
+
+[editor.cursor-shape]
+insert = 'bar'
+normal = 'block'
+select = 'underline'
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+# '`' = '`'
+# '<' = '>'
+"'" = "'"
+'"' = '"'
+
+[editor.statusline]
+separator = '|'
+left = ['position', 'selections', 'diagnostics']
+center = ['file-name']
+right = ['spinner', 'workspace-diagnostics']
+
+[editor.lsp]
+display-inlay-hints = true
+
+[keys.normal]
+y = ':clipboard-yank'
+p = ':clipboard-paste-after'
+P = ':clipboard-paste-before'
+R = ':clipboard-paste-replace'
+d = [':clipboard-yank', 'delete_selection_noyank']
+C-s = ':w'
+C-w = ':buffer-close'
+C-f = 'file_picker'
+C-tab = ':buffer-next'
+# C-e = ['window_mode']
+
+[keys.normal.'space']
+o = 'file_picker_in_current_buffer_directory'
+
+[keys.select]
+y = ':clipboard-yank'
+R = ':clipboard-paste-replace'
+d = [':clipboard-yank', 'delete_selection_noyank']
+C-s = ':w'
+
+[keys.insert]
+C-s = [':w', 'normal_mode']
+C-v = ['normal_mode', ':clipboard-paste-replace']
+C-space = 'completion'
+C-tab = ':buffer-next'
+
