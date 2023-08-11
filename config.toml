@@ -1,6 +1,6 @@
 # theme = 'autumn_night'
 # theme = 'catppuccin_mocha'
-theme = 'ayu_evolve'
+theme = 'my_theme'
 
 [editor]
 idle-timeout = 50
@@ -33,29 +33,30 @@ right = ['spinner', 'workspace-diagnostics']
 display-inlay-hints = true
 
 [keys.normal]
-y = ':clipboard-yank'
-p = ':clipboard-paste-after'
+# C-e = ['window_mode']
+C-f = 'file_picker'
+C-r = 'goto_last_accessed_file'
+C-s = ':w'
+C-tab = ':buffer-next'
+C-w = ':buffer-close'
 P = ':clipboard-paste-before'
 R = ':clipboard-paste-replace'
 d = [':clipboard-yank', 'delete_selection_noyank']
-C-s = ':w'
-C-w = ':buffer-close'
-C-f = 'file_picker'
-C-tab = ':buffer-next'
-# C-e = ['window_mode']
+p = ':clipboard-paste-after'
+y = ':clipboard-yank'
 
 [keys.normal.'space']
 o = 'file_picker_in_current_buffer_directory'
 
 [keys.select]
-y = ':clipboard-yank'
+C-s = ':w'
 R = ':clipboard-paste-replace'
 d = [':clipboard-yank', 'delete_selection_noyank']
-C-s = ':w'
+y = ':clipboard-yank'
 
 [keys.insert]
+C-r = 'goto_last_accessed_file'
 C-s = [':w', 'normal_mode']
-C-v = ['normal_mode', ':clipboard-paste-replace']
 C-space = 'completion'
 C-tab = ':buffer-next'
-
+C-v = ['normal_mode', ':clipboard-paste-replace']

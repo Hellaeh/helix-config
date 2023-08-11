@@ -13,6 +13,18 @@ formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--sin
 auto-format = true
 
 [[language]]
+name = 'jsx'
+# language-servers = [ { name = 'eslint', except-features = ['format']}]
+formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+auto-format = true
+
+[[language]]
+name = 'tsx'
+# language-servers = [ { name = 'eslint', except-features = ['format']}]
+formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+auto-format = true
+
+[[language]]
 name = 'javascript'
 # language-servers = [ { name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
