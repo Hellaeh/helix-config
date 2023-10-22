@@ -3,6 +3,8 @@
 theme = 'my_theme'
 
 [editor]
+# FIXME: enable on next release after v23.05
+# line-ending = 'lf'
 idle-timeout = 50
 line-number = 'relative'
 scrolloff = 20
@@ -15,19 +17,19 @@ normal = 'block'
 select = 'underline'
 
 [editor.auto-pairs]
-'(' = ')'
-'{' = '}'
-'[' = ']'
-# '`' = '`'
-# '<' = '>'
 "'" = "'"
+# '<' = '>'
+# '`' = '`'
 '"' = '"'
+'(' = ')'
+'[' = ']'
+'{' = '}'
 
 [editor.statusline]
 separator = '|'
-left = ['position', 'selections', 'diagnostics']
-center = ['file-name']
-right = ['spinner', 'workspace-diagnostics']
+left = ['position', 'position-percentage', 'selections', 'diagnostics']
+center = ['file-name', 'total-line-numbers']
+right = ['spinner', 'workspace-diagnostics', 'version-control', 'file-line-ending']
 
 [editor.lsp]
 display-inlay-hints = true
@@ -35,6 +37,10 @@ display-inlay-hints = true
 [keys.normal]
 # C-e = ['window_mode']
 C-f = 'file_picker'
+C-h = 'jump_view_left'
+C-j = 'jump_view_up'
+C-k = 'jump_view_down'
+C-l = 'jump_view_right'
 C-r = 'goto_last_accessed_file'
 C-s = ':w'
 C-tab = ':buffer-next'
@@ -50,13 +56,19 @@ o = 'file_picker_in_current_buffer_directory'
 
 [keys.select]
 C-s = ':w'
+P = 'paste_after'
 R = ':clipboard-paste-replace'
+Y = 'yank'
 d = [':clipboard-yank', 'delete_selection_noyank']
 y = ':clipboard-yank'
 
 [keys.insert]
+C-h = 'jump_view_left'
+C-j = 'jump_view_up'
+C-k = 'jump_view_down'
+C-l = 'jump_view_right'
 C-r = 'goto_last_accessed_file'
 C-s = [':w', 'normal_mode']
 C-space = 'completion'
 C-tab = ':buffer-next'
-C-v = ['normal_mode', ':clipboard-paste-replace']
+C-v = ['normal_mode', ':clipboard-paste-before', 'insert_mode']

@@ -29,3 +29,8 @@ name = 'javascript'
 # language-servers = [ { name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
+
+[[language]]
+name = 'css'
+formatter = { command = 'D:/rust/projects/css-formatter/target/debug/hel-css-formatter.exe' }
+auto-format = true
