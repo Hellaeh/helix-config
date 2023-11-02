@@ -1,36 +1,50 @@
+[language-server.rust-lsp]
+command = 'rustup'
+args = ['run', 'nightly', 'rust-analyzer']
+config = { provideFormatter = true }
+
+[language-server.esling]
+command = 'eslint'
+
 [[language]]
 name = 'rust'
-indent = { tab-width = 2, unit = '  ' }
-language-server = { command = 'rustup', args = ['run', 'nightly', 'rust-analyzer'] }
+language-servers = [{ name = 'rust-lsp' }]
+indent = { tab-width = 2, unit = '\t' }
 
-[language.config.check]
-command = 'clippy'
+# [language.config.check]
+# command = 'clippy'
 
 [[language]]
 name = 'typescript'
-# language-servers = [ { name = 'eslint', except-features = ['format']}]
+language-servers = [{ name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
 
 [[language]]
 name = 'jsx'
-# language-servers = [ { name = 'eslint', except-features = ['format']}]
+language-servers = [{ name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
 
 [[language]]
 name = 'tsx'
-# language-servers = [ { name = 'eslint', except-features = ['format']}]
+language-servers = [{ name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
 
 [[language]]
 name = 'javascript'
-# language-servers = [ { name = 'eslint', except-features = ['format']}]
+language-servers = [{ name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
 
 [[language]]
 name = 'css'
 formatter = { command = 'D:/rust/projects/css-formatter/target/debug/hel-css-formatter.exe' }
+auto-format = true
+
+[[language]]
+name = 'c-sharp'
+# language-server = { command = 'dotnet', args = ['C:/omnisharp-win-x64-net6.0/OmniSharp.dll', '--languageserver'] }
+indent = { tab-width = 2, unit = '  ' }
 auto-format = true

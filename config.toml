@@ -4,12 +4,22 @@ theme = 'my_theme'
 
 [editor]
 # FIXME: enable on next release after v23.05
-# line-ending = 'lf'
+auto-format = true
+auto-save = true
+bufferline = 'multiple'
+cursorcolumn = true
+cursorline = true
+default-line-ending = 'lf'
 idle-timeout = 50
+insert-final-newline = true
 line-number = 'relative'
 scrolloff = 20
 shell = ['pwsh', '-NoLogo', '-NonInteractive', '-Command'] #-NoProfile
 true-color = true
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
 
 [editor.cursor-shape]
 insert = 'bar'
@@ -33,6 +43,7 @@ right = ['spinner', 'workspace-diagnostics', 'version-control', 'file-line-endin
 
 [editor.lsp]
 display-inlay-hints = true
+display-messages = true
 
 [keys.normal]
 # C-e = ['window_mode']
