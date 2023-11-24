@@ -46,5 +46,5 @@ auto-format = true
 [[language]]
 name = 'c-sharp'
 # language-server = { command = 'dotnet', args = ['C:/omnisharp-win-x64-net6.0/OmniSharp.dll', '--languageserver'] }
-indent = { tab-width = 2, unit = '  ' }
+indent = { tab-width = 2, unit = '\t' }
 auto-format = true

@@ -5,7 +5,7 @@ theme = 'my_theme'
 [editor]
 # FIXME: enable on next release after v23.05
 auto-format = true
-auto-save = true
+# auto-save = true
 bufferline = 'multiple'
 cursorcolumn = true
 cursorline = true
@@ -19,7 +19,6 @@ true-color = true
 
 [editor.indent-guides]
 render = true
-skip-levels = 1
 
 [editor.cursor-shape]
 insert = 'bar'
@@ -28,7 +27,7 @@ select = 'underline'
 
 [editor.auto-pairs]
 "'" = "'"
-# '<' = '>'
+'<' = '>'
 # '`' = '`'
 '"' = '"'
 '(' = ')'
@@ -37,7 +36,7 @@ select = 'underline'
 
 [editor.statusline]
 separator = '|'
-left = ['position', 'position-percentage', 'selections', 'diagnostics']
+left = ['position', 'selections', 'diagnostics']
 center = ['file-name', 'total-line-numbers']
 right = ['spinner', 'workspace-diagnostics', 'version-control', 'file-line-ending']
 
@@ -47,7 +46,7 @@ display-messages = true
 
 [keys.normal]
 # C-e = ['window_mode']
-C-f = 'file_picker'
+C-f = 'file_picker_in_current_directory'
 C-h = 'jump_view_left'
 C-j = 'jump_view_up'
 C-k = 'jump_view_down'
@@ -64,6 +63,8 @@ y = ':clipboard-yank'
 
 [keys.normal.'space']
 o = 'file_picker_in_current_buffer_directory'
+f = 'file_picker_in_current_directory'
+F = 'file_picker'
 
 [keys.select]
 C-s = ':w'
