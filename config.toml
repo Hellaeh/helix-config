@@ -27,7 +27,7 @@ select = 'underline'
 
 [editor.auto-pairs]
 "'" = "'"
-'<' = '>'
+# '<' = '>'
 # '`' = '`'
 '"' = '"'
 '(' = ')'
@@ -36,7 +36,7 @@ select = 'underline'
 
 [editor.statusline]
 separator = '|'
-left = ['position', 'selections', 'diagnostics']
+left = ['position', 'primary-selection-length', 'selections', 'diagnostics']
 center = ['file-name', 'total-line-numbers']
 right = ['spinner', 'workspace-diagnostics', 'version-control', 'file-line-ending']
 
@@ -58,6 +58,7 @@ C-w = ':buffer-close'
 P = ':clipboard-paste-before'
 R = ':clipboard-paste-replace'
 d = [':clipboard-yank', 'delete_selection_noyank']
+esc = 'collapse_selection'
 p = ':clipboard-paste-after'
 y = ':clipboard-yank'
 

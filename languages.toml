@@ -1,40 +1,62 @@
+### Language Servers ###
 [language-server.rust-lsp]
 command = 'rustup'
 args = ['run', 'nightly', 'rust-analyzer']
-config = { provideFormatter = true }
+[language-server.rust-lsp.config]
+provideFormatter = true
+check = { command = 'clippy' }
+completion.callable.snippets = 'add_parentheses'
 
-[language-server.esling]
-command = 'eslint'
+[language-server.eslint]
+command = 'C/Program Files/nodejs/eslint.cmd'
 
+[language-server.csharp-ls]
+command = 'C:/csharp-ls/src/CSharpLanguageServer/bin/Release/net8.0/CSharpLanguageServer.exe'
+
+[language-server.ts-lsp]
+command = 'C:/Program Files/nodejs/typescript-language-server.cmd'
+args = ['--stdio']
+[language-server.ts-lsp.config.typescript.inlayHints]
+ includeInlayEnumMemberValueHints = true
+ includeInlayFunctionLikeReturnTypeHints = true
+ includeInlayFunctionParameterTypeHints = true
+ includeInlayParameterNameHints = "all"
+ includeInlayParameterNameHintsWhenArgumentMatchesName = true
+ includeInlayPropertyDeclarationTypeHints = true
+ includeInlayVariableTypeHints = true
+[language-server.ts-lsp.config.javascript.inlayHints]
+ includeInlayEnumMemberValueHints = true
+ includeInlayFunctionLikeReturnTypeHints = true
+ includeInlayFunctionParameterTypeHints = true
+ includeInlayParameterNameHints = "all"
+ includeInlayParameterNameHintsWhenArgumentMatchesName = true
+ includeInlayPropertyDeclarationTypeHints = true
+ includeInlayVariableTypeHints = true
+
+### Languages ###
 [[language]]
 name = 'rust'
 language-servers = [{ name = 'rust-lsp' }]
 indent = { tab-width = 2, unit = '\t' }
 
-# [language.config.check]
-# command = 'clippy'
-
 [[language]]
 name = 'typescript'
-language-servers = [{ name = 'eslint', except-features = ['format']}]
+language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
-
-[[language]]
-name = 'jsx'
-language-servers = [{ name = 'eslint', except-features = ['format']}]
-formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
-auto-format = true
-
-[[language]]
-name = 'tsx'
-language-servers = [{ name = 'eslint', except-features = ['format']}]
-formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
-auto-format = true
-
 [[language]]
 name = 'javascript'
-language-servers = [{ name = 'eslint', except-features = ['format']}]
+language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
+formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+auto-format = true
+[[language]]
+name = 'jsx'
+language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
+formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+auto-format = true
+[[language]]
+name = 'tsx'
+language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
 formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
 auto-format = true
 
@@ -45,6 +67,6 @@ auto-format = true
 
 [[language]]
 name = 'c-sharp'
-# language-server = { command = 'dotnet', args = ['C:/omnisharp-win-x64-net6.0/OmniSharp.dll', '--languageserver'] }
+# language-servers = [{ name = 'csharp-ls' }]
 indent = { tab-width = 2, unit = '\t' }
 auto-format = true
