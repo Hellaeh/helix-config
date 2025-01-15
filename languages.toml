@@ -7,14 +7,18 @@ provideFormatter = true
 check = { command = 'clippy' }
 completion.callable.snippets = 'add_parentheses'
 
+[language-server.xml-lsp]
+command = 'lemminx'
+
 [language-server.eslint]
-command = 'C/Program Files/nodejs/eslint.cmd'
+command = 'eslint'
 
 [language-server.csharp-ls]
-command = 'C:/csharp-ls/src/CSharpLanguageServer/bin/Release/net8.0/CSharpLanguageServer.exe'
+command = 'csharp-ls'
+args = ['msbuild:loadProjectsOnDemand=true']
 
 [language-server.ts-lsp]
-command = 'C:/Program Files/nodejs/typescript-language-server.cmd'
+command = 'typescript-language-server'
 args = ['--stdio']
 [language-server.ts-lsp.config.typescript.inlayHints]
  includeInlayEnumMemberValueHints = true
@@ -35,34 +39,47 @@ args = ['--stdio']
 
 ### Languages ###
 [[language]]
+name = 'xml'
+language-servers = [{ name = 'xml-lsp' }]
+file-types = ['sbc', 'xml']
+
+[[language]]
+name = 'lua'
+file-types = ['lua', 'script']
+
+[[language]]
 name = 'rust'
 language-servers = [{ name = 'rust-lsp' }]
 indent = { tab-width = 2, unit = '\t' }
 
 [[language]]
+name = 'zig'
+indent = { tab-width = 2, unit = '\t' }
+
+[[language]]
 name = 'typescript'
 language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
-formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+formatter = { command = 'deno fmt --use-tabs --single-quote' }
 auto-format = true
 [[language]]
 name = 'javascript'
 language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
-formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+formatter = { command = 'deno fmt --use-tabs --single-quote' }
 auto-format = true
 [[language]]
 name = 'jsx'
 language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
-formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+formatter = { command = 'deno fmt --use-tabs --single-quote' }
 auto-format = true
 [[language]]
 name = 'tsx'
 language-servers = [{ name = 'ts-lsp' }, { name = 'eslint', except-features = ['format']}]
-formatter = { command = 'prettier.cmd', args = ['--parser', 'typescript', '--single-quote', '--trailing-comma', 'all', '--use-tabs', '--tabs-width', '2'] }
+formatter = { command = 'deno fmt --use-tabs --single-quote' }
 auto-format = true
 
 [[language]]
 name = 'css'
-formatter = { command = 'D:/rust/projects/css-formatter/target/debug/hel-css-formatter.exe' }
+formatter = { command = 'hel-css' }
 auto-format = true
 
 [[language]]
@@ -70,3 +87,29 @@ name = 'c-sharp'
 # language-servers = [{ name = 'csharp-ls' }]
 indent = { tab-width = 2, unit = '\t' }
 auto-format = true
+
+[[language]]
+name = 'go'
+indent = { tab-width = 2, unit = '\t' }
+auto-format = true
+
+
+# PoE lang (custom)
+[[language]]
+name = 'poe_filter'
+scope = 'text.poe_filter'
+file-types = ['filter']
+indent = { tab-width = 2, unit = '\t' }
+comment-token = '#'
+[[grammar]]
+name = 'poe_filter'
+source = { path = 'D:/projects/poe_lang/tree-sitter-normal' }
+[[language]]
+name = 'poe_filter_extended'
+scope = 'text.poe_filter'
+file-types = ['xfilter']
+indent = { tab-width = 2, unit = '\t' }
+comment-token = '#'
+[[grammar]]
+name = 'poe_filter_extended'
+source = { path = 'D:/projects/poe_lang/tree-sitter-extended' }

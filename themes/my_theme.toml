@@ -1,4 +1,4 @@
 inherits = 'ayu_evolve'
 
 "ui.background" = {}
-"ui.virtual.inlay-hint" = { fg = "#707070" }
+"ui.virtual.inlay-hint" = { fg = "#505050" }
